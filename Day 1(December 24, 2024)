@@ -1,0 +1,40 @@
+Counter:
+
+import { useState } from 'react';
+import reactLogo from './assets/react.svg';
+import viteLogo from '/vite.svg';
+import './App.css';
+
+function App() {
+  const [count, setCount] = useState(0);
+
+  const handleCount = (str) => {
+    switch (str) {
+      case 'increment':
+        setCount((prev) => prev + 1);
+        break;
+
+      case 'decrement':
+        setCount((prev) => prev - 1);
+        break;
+
+      case 'reset':
+        setCount(0);
+        break;
+
+      default:
+        break;
+    }
+  };
+
+  return (
+    <>
+      {count}
+      <button onClick={handleCount('increment')}>+</button>
+      <button onClick={handleCount('decrement')}>-</button>
+      <button onClick={handleCount('reset')}>reset</button>
+    </>
+  );
+}
+
+export default App;
