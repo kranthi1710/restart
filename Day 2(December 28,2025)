@@ -1,1 +1,16 @@
-Today
+// count character frequency
+// Input: "aabbc"
+// Output: { a: 2, b: 2, c: 1 }
+
+function countCharFreq(str){
+    const output={};
+    for(let i of str){
+        if(output.hasOwnProperty(i)){
+            output[i]++;
+        } else{
+            output[i]=1;
+        }
+    }
+    return output;
+}
+console.log(countCharFreq("aabbc"))
