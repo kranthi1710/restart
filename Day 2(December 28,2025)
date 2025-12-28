@@ -14,3 +14,19 @@ function countCharFreq(str){
     return output;
 }
 console.log(countCharFreq("aabbc"))
+
+// check if a number is pallindrome
+
+function checkPallindrome(num){
+const str=num.toString();
+const revStr=str.split("").reverse().join("");
+console.log(str,"and",revStr);
+if(str===revStr){
+    return true;
+} else{
+    return false;
+}
+}
+console.log(checkPallindrome(1226))
+
+
