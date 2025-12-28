@@ -29,4 +29,17 @@ if(str===revStr){
 }
 console.log(checkPallindrome(1226))
 
+/**
+ * @param {number[]} nums
+ * @return {boolean}
+ */
+var containsDuplicate = function(nums) {
+    const uniqueArr=new Set(nums);
+    if(nums.length!==[...uniqueArr].length){
+        return true;
+    } else{
+        return false;
+    }
+};
+
 
