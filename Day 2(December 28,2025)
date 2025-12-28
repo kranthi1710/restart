@@ -43,3 +43,51 @@ var containsDuplicate = function(nums) {
 };
 
 
+🧩 Task: Show / Hide Text
+Requirements:
+
+Display a text: “Hello, React!”
+
+A button labeled “Toggle”
+
+Clicking the button should:
+
+Hide the text if visible
+
+Show the text if hidden
+
+Technical constraints:
+
+Use functional component
+
+Use useState
+
+No styling
+
+📌 Focus on:
+
+Boolean state
+
+Conditional rendering
+
+
+import React, { useState } from 'react';
+import './style.css';
+
+export default function App() {
+  const [displayText, setDisplayText] = useState(false);
+  const handleDisplay = () => {
+    setDisplayText(!displayText);
+  };
+  return (
+    <div>
+      {displayText && <h1>Hello React!</h1>}
+      <button onClick={handleDisplay}>
+        {displayText ? 'hide' : 'show'} Text
+      </button>
+    </div>
+  );
+}
+
+
+
