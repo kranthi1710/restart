@@ -8,3 +8,28 @@ function findNumber(arr){
     return [arr[arr.length-1],arr[0]]
 }
 console.log(findNumber([4,2,9,1]));
+
+
+/**
+ * @param {number[]} nums
+ * @return {number}
+ */
+
+// https://leetcode.com/problems/maximum-subarray/
+var maxSubArray = function(nums) {
+    let max_sum=nums[0];
+    let current_sum=0;
+    for(let i=0;i<nums.length;i++){
+       current_sum+=nums[i];
+       if(current_sum>max_sum){
+        max_sum=current_sum;
+       }
+       if(current_sum<0){
+        current_sum=0;
+       }
+       
+}   
+  
+    return max_sum;
+    
+};
