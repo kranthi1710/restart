@@ -1,3 +1,8 @@
 Write a function to reverse a string
 
 "hello" → "olleh"
+
+
+Write a function to check if two strings are anagrams
+
+"listen", "silent" → true
