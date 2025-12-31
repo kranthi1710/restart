@@ -21,3 +21,32 @@ var isAnagram = function(s, t) {
     return sortS.toLowerCase()===sortT.toLowerCase()
        
 };
+
+OPtimized solution:
+/**
+ * @param {string} s
+ * @param {string} t
+ * @return {boolean}
+ */
+var isAnagram = function (s, t) {
+  // 1️⃣ Early exit: length check
+  if (s.length !== t.length) return false;
+
+  // 2️⃣ Frequency map
+  const map = {};
+
+  // 3️⃣ Count characters in s
+  for (let ch of s) {
+    map[ch] = (map[ch] || 0) + 1;
+  }
+
+  // 4️⃣ Decrease count using t
+  for (let ch of t) {
+    if (!map[ch]) return false; // early failure
+    map[ch]--;
+  }
+
+  // 5️⃣ All checks passed
+  return true;
+};
+
