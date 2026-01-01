@@ -1,1 +1,14 @@
 // Move Zeros
+Tried approach:(Wrong)
+var moveZeroes = function(nums) {
+    let sortNums=nums.sort((a,b)=>a-b);
+    for(let num of sortNums){
+        if(num===0){
+            let removedElement=sortNums.shift();
+            sortNums.push(removedElement)
+        }
+    }
+    return sortNums;
+};
+
+Correct Approach:
