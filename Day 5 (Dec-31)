@@ -11,4 +11,41 @@ var moveZeroes = function(nums) {
     return sortNums;
 };
 
+NOTE:
+Sorting changes the relative order of non-zero elements, which violates the problem constraint.
+Also, sorting and shifting increase time complexity, so I switched to a linear two-pointer approach
+
 Correct Approach:
+
+/**
+ * @param {number[]} nums
+ * @return {void} Do not return anything, modify nums in-place instead.
+ */
+var moveZeroes = function(nums) {
+     let index=0;
+    for(let i=0;i<nums.length;i++){
+        if(nums[i]!==0){
+            nums[index]=nums[i];
+            index++;
+        }
+    }
+   
+    for(let i=index;i<nums.length;i++){
+        nums[i]=0;
+    }
+};
+
+NOTE:(Remember this pattern)
+This problem belongs to:
+
+Stable in-place array transformation
+
+Whenever you see:
+
+“Maintain order”
+
+“In-place”
+
+“Move elements”
+
+👉 Think two pointers, not sorting or shifting
