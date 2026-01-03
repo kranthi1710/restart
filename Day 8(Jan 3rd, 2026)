@@ -1,1 +1,36 @@
-//
+//Closures example
+
+function createCounter() {
+  let x = 0; // private variable
+
+  function display() {
+    return ++x;
+  }
+
+  return display;
+}
+
+const counter = createCounter();
+
+counter(); // 1
+counter(); // 2
+counter(); // 3
+
+Why This Is a Closure (Explain This Confidently)
+
+Say this in interviews 👇
+
+“display forms a closure over the variable x.
+Even after createCounter finishes execution, display still has access to x due to lexical scoping.
+This allows data privacy because x cannot be accessed directly from outside.”
+
+This explanation is exactly what interviewers expect.
+------------------------------
+Small Enhancement (Optional – Shows Senior Thinking)
+function createCounter(start = 0) {
+  let count = start;
+
+  return function () {
+    return ++count;
+  };
+}
