@@ -1,1 +1,4 @@
-// TO do
+// Two learnings
+<input type="text" value={userName} onChange={} />
+syntax
+{users.map((item,index)=>())}
