@@ -1,0 +1,17 @@
+user.name        // dot → static keys
+user["location"] // bracket → dynamic keys
+Say this 👇 in interviews:
+
+“I use bracket notation when the key is dynamic or comes from a variable.”
+
+const user = { name: "Kranthi", role: "Frontend", exp: 7 };
+
+user["location"]="hyd"
+delete user.role
+user.exp=8
+
+for(let key in user){
+    console.log(key,user[key])
+}
+
+Object.keys(user).forEach((key)=>console.log(key,user[key]))
