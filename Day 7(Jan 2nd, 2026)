@@ -31,3 +31,30 @@ var firstUniqChar = function(s) {
 };
 
 OPTIMIZED APPROACH(TWO PASS APPROACH)
+var firstUniqChar = function(s) {
+     let map={}
+    for(let ch of s){
+     map[ch]=(map[ch] || 0) +1
+    }
+   for(let i=0;i<s.length;i++){
+    if(map[s[i]]===1){
+        return i;
+    }
+   }
+
+   return -1;
+};
+
+How to Explain This in Interview (Say This)
+
+“I’m using a two-pass approach.
+First, I count character frequencies using a hash map.
+Then I traverse the string again to find the first character with frequency one, ensuring order is preserved.”
+
+This explanation = strong signal.
+
+If Interviewer Asks: “Why not Object.keys?”
+
+Answer:
+
+“Because the problem depends on string order, and traversing the string again guarantees correctness.”
