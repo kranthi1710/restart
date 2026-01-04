@@ -123,6 +123,24 @@ var twoSum = function(nums, target) {
     }
 };
 
+OPTIMIZED Approach:(HASH MAP)
+var twoSum = function(nums, target) {
+   let map={};
+
+   // put all the elements in the map by giving indexes
+   for(let i=0;i<nums.length;i++){
+    map[nums[i]]=i;
+   }
+   // search for remaining sum present in the map and return the indexes
+   for(let i=0;i<nums.length;i++){
+    // check the difference of target and current ELement and find pairToELement
+       let remElement=target-nums[i];
+       // check if pairToELement must present in map and pairToELement index must not to equal to current index
+       if(map[remElement]!==undefined && map[remElement]!==i){
+          return [i,map[remElement]]
+       }
+   }
+};
 
 
 
