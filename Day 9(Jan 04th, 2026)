@@ -39,3 +39,65 @@ this = undefined   // in strict mode
 Then:
 this.name → undefined
 ⚠️ This is called context loss.
+
+How to fix this:
+1. Use of bind
+const greetFn = user.greet.bind(user);
+greetFn();
+
+2. USe Arrow functions
+const greetFn =()=> user.greet(); 
+greetFn();
+
+Say this 👇 confidently:
+
+“In JavaScript, this is determined by how a function is called, not where it’s defined.
+When a method is assigned to a variable and called independently, it loses its object context, so this becomes undefined in strict mode.”
+
+This sentence = senior-level clarity.
+
+Tricky Example:
+const obj = {
+  name: "A",
+  greet() {
+    setTimeout(function () {
+      console.log(this.name);
+    }, 0);
+  }
+};
+
+obj.greet(); // undefined
+
+Say this 👇
+
+“Although greet is called as a method, the function inside setTimeout is a regular function invoked later without an object context. Therefore, this defaults to undefined in strict mode.”
+
+How to make it work:
+1. Use bind:
+const obj = {
+  name: "A",
+  greet() {
+    setTimeout(function () {
+      console.log(this.name);
+    }.bind(obj), 0);
+  }
+};
+Regular functions get their this from how they’re called; arrow functions get this from where they’re written.
+
+2. Use Arrow function
+const obj = {
+  name: "A",
+  greet() {
+    setTimeout( () => {
+      console.log(this.name);
+    }, 0);
+  }
+};
+Reason:
+Arrow functions do not have their own this
+They capture this from greet
+Here: this === obj
+
+
+
+
