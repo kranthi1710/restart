@@ -1,0 +1,56 @@
+//Event loop
+Order of execution:
+Call stack
+Web APIs
+Microtask queue (Promises)
+Macrotask queue (setTimeout)
+
+Predict the Output:
+
+console.log("start");
+setTimeout(() => {
+  console.log("timeout");
+}, 0);
+Promise.resolve().then(() => {
+  console.log("promise");
+});
+console.log("end");
+
+Output:
+start
+end
+promise
+timeout
+
+Explaination:
+1. Synchronous code (Call Stack)
+console.log("start");
+console.log("end");
+
+These run immediately
+They go directly on the call stack
+
+2. Promise (.then) → Microtask Queue
+Promise.resolve().then(() => {
+  console.log("promise");
+});
+
+Promises are placed in the microtask queue
+Microtasks run after the call stack is empty
+Microtasks have higher priority than macrotasks
+
+3.setTimeout → Macrotask Queue
+setTimeout(() => {
+  console.log("timeout");
+}, 0);
+
+
+Goes to Web APIs
+Then to macrotask queue
+Runs only after:
+Call stack is empty
+Microtask queue is fully drained
+
+Interview Explaination : 
+“JavaScript executes synchronous code first, then drains the microtask queue (Promises), and finally executes macrotasks like setTimeout, regardless of the delay.
+
