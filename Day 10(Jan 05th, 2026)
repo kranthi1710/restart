@@ -54,3 +54,23 @@ Microtask queue is fully drained
 Interview Explaination : 
 “JavaScript executes synchronous code first, then drains the microtask queue (Promises), and finally executes macrotasks like setTimeout, regardless of the delay.
 
+
+/**
+ * @param {string} s
+ * @return {boolean}
+ */
+var isValid = function(s) {
+let stack=new Stack();
+for(let ch of s){
+    stack.push(ch);
+}
+
+for(let i=0;i stack){
+    let removedEle=stack.pop();
+    console.log(removedEle)
+}
+
+};
+
+
+
