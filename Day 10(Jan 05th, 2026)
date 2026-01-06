@@ -72,5 +72,62 @@ for(let i=0;i stack){
 
 };
 
+Correct solution:
+var isValid = function(s) {
+  const stack = [];
 
+  for (let ch of s) {
+    if (ch === '(' || ch === '{' || ch === '[') {
+      stack.push(ch);
+    } else {
+      if (stack.length === 0) return false;
+
+      const last = stack.pop();
+
+      if (
+        (ch === ')' && last !== '(') ||
+        (ch === '}' && last !== '{') ||
+        (ch === ']' && last !== '[')
+      ) {
+        return false;
+      }
+    }
+  }
+
+  return stack.length === 0;
+};
+🎤 Interview Explanation (Say This)
+“I used a stack because brackets must close in reverse order.
+I push opening brackets, and for each closing bracket I verify it matches the top of the stack.”
+
+
+
+✅ Why "[({})]" is true
+Let’s quickly walk through it using stack logic (this is what interviewers want to hear):
+
+Step-by-step:
+[ → opening → push
+
+( → opening → push
+
+{ → opening → push
+
+} → closing → matches { → pop
+
+) → closing → matches ( → pop
+
+] → closing → matches [ → pop
+
+👉 Stack is empty at the end ✅
+
+🎯 Polished Interview Explanation (Use This)
+“The string is valid because every opening bracket has a matching closing bracket in the correct order. Using a stack, each closing bracket matches the most recent opening bracket, and the stack is empty at the end.”
+
+This explanation shows:
+
+Pattern recognition
+
+Correct data structure
+
+Clear reasoning
 
