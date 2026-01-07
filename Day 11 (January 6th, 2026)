@@ -10,3 +10,36 @@ var removeDuplicates = function(nums) {
    return x;
 
 };
+
+Above approach is correct but need some changes:
+->nums[i + 1] works but relies on undefined comparison at the end (not clean for interviews).
+
+Correct Way to Think (Interview Explanation)
+
+Since the array is sorted, duplicates will always be adjacent.
+I use two pointers:
+i → fast pointer (scans array)
+x → slow pointer (tracks position of unique elements)
+
+🧠 Step-by-Step Logic (Very Important)
+Start x = 1 (first element is always unique)
+Loop from index 1
+Compare current element with previous element
+If different → place it at nums[x], increment x
+Return x (count of unique elements)
+
+Clean & Interview-Ready Solution
+var removeDuplicates = function(nums) {
+    if (nums.length === 0) return 0;/// THIS STEP is IMP
+
+    let x = 1; // slow pointer
+
+    for (let i = 1; i < nums.length; i++) {
+        if (nums[i] !== nums[i - 1]) {
+            nums[x] = nums[i];
+            x++;
+        }
+    }
+
+    return x;
+};
