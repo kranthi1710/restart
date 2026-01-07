@@ -1,0 +1,16 @@
+// Two sum II - Input Array is sorted
+
+My Approach using two pointers
+ var twoSum = function(numbers, target) {
+    // Two pointer approach
+    let x=0;
+    for(let i=0;i<numbers.length;){
+        if(numbers[i]+numbers[x+1]===target){
+            return [i+1,x+2]
+        } else{
+            numbers[x]=numbers[i];
+            x++;
+        }
+    }
+
+};
