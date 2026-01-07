@@ -16,3 +16,67 @@ My Approach using two pointers
 };
 
 Time limit got eceeded for this approach
+
+My second approach:(WORKED)
+var twoSum = function(numbers, target) {
+    // Two pointer approach
+    let x=numbers.length-1;
+    for(let i=0;i<numbers.length;){
+        if(numbers[i]+numbers[x]<target){
+           i++;
+        } else if(numbers[i]+numbers[x]>target){
+            x--;
+        }
+        else if(numbers[i]+numbers[x]===target){
+            return [i+1,x+1];
+        }
+    }
+
+};
+
+Chatgpt approach:
+
+Pointer initialization clarity
+You used:
+let x = numbers.length - 1;
+for (let i = 0; i < numbers.length;) {
+
+This works, but:
+for loop without increment looks confusing in interviews
+Two pointers are clearer with while
+
+2️⃣ Loop boundary
+You should stop when i < x, not i < numbers.length
+Why?
+When i === x, same element used twice (not allowed)
+
+✅ Interview-Clean Version (Recommended)
+var twoSum = function(numbers, target) {
+    let left = 0;
+    let right = numbers.length - 1;
+
+    while (left < right) {
+        const sum = numbers[left] + numbers[right];
+
+        if (sum === target) {
+            return [left + 1, right + 1];
+        } else if (sum < target) {
+            left++;
+        } else {
+            right--;
+        }
+    }
+};
+
+🧠 Logic Explanation (Say This in Interview)
+
+“Since the array is sorted, I used two pointers.
+If the sum is smaller than target, I move the left pointer right to increase the sum.
+If the sum is larger, I move the right pointer left to decrease the sum.
+This gives an O(n) solution.”
+
+This explanation is Microsoft-level clear.
+
+⏱ Complexity (Must Say)
+Time: O(n)
+Space: O(1)
