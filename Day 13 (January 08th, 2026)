@@ -26,3 +26,7 @@ var maxSubArray = function(nums) {
     }
     return max_sum;
 };
+
+WHY IT failed for negative scenarios because
+max_sum =0 (WRONG)
+max_sum=nums[0] (CORRECT)
