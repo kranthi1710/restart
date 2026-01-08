@@ -1,1 +1,28 @@
-//
+Max sub array:
+My approach :(fails for array with negative numbers)
+/**
+ * @param {number[]} nums
+ * @return {number}
+ */
+
+
+var maxSubArray = function(nums) {
+     let startIdx=0;
+    let endIdx=0;
+    let max_sum=0;
+    let sum=0;
+    for(let i=0;i<nums.length;i++){
+    sum+=nums[i];
+      
+     if(sum>max_sum){
+         max_sum=sum;
+         startIdx++;
+         endIdx=i+1;
+        
+     }
+     if(sum<0){
+         sum=0;
+     }
+    }
+    return max_sum;
+};
