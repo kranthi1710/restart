@@ -29,3 +29,34 @@ if(k<i.length){
    }
   return arr.length==0? s.length : k;
 };
+
+My Approach 2: (STILL FAILING)
+/**
+ * @param {string} s
+ * @return {number}
+ */
+var lengthOfLongestSubstring = function(s) {
+    let leftIdx=0;
+    let max_sum=0;
+    let current_sum=0;
+    let map={};
+    for(let i=0;i<s.length;i++){
+        if(!map.hasOwnProperty(s[i])){
+           map[s[i]]=i;
+        } else{
+          
+          current_sum=i-map[s[i]];
+          if(current_sum>max_sum){
+              max_sum=current_sum;
+          }
+          map[s[i]]=i;
+          i=leftIdx++;
+        
+        }
+        
+       }
+        
+return max_sum;
+};
+
+lengthOfLongestSubstring("bbbb")
