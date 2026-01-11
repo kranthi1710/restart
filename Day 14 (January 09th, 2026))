@@ -60,6 +60,53 @@ return max_sum;
 };
 
 lengthOfLongestSubstring("bbbb")
+----------------------------------------------------------------------------------------------------------
+WHY ABOVE APPRACHES DIDN'T WORKED:
+Your current code shows effort, but it still breaks core sliding window rules.
+I’ll improve it step by step and end with a fully correct LeetCode-safe solution.
+
+1️⃣ Why Your Current Code Still Fails
+❌ 1. You are modifying the loop index again
+i = leftIdx++;
+
+🚫 This will break iteration and cause missed characters / infinite loops.
+
+📌 Rule:
+Never modify i inside a for loop in sliding window problems.
+
+❌ 2. current_sum logic is incorrect
+current_sum = i - map[s[i]];
+
+This assumes the window always starts at map[s[i]] + 1, which is not true.
+
+❌ 3. leftIdx is not used correctly
+
+You increment leftIdx, but you never use it to restrict the window properly.
+
+❌ 4. Edge cases fail
+
+Example:
+
+"bbbb"
+
+Expected: 1
+Your output: 0 ❌
+
+🧠 Minimal Change, Maximum Fix (Your Style Preserved)
+
+Instead of resetting i, we move leftIdx safely forward.
+
+🧠 Key Fixes Explained (Very Important)
+✔ Instead of this ❌
+i = leftIdx++;
+
+We do this ✅
+left = map[char] + 1;
+
+This ensures:
+Left pointer never moves backward
+Window remains valid
+All characters processed once
 -----------------------------------------------------------------------------------------------------------
 Correct Approach:
 
