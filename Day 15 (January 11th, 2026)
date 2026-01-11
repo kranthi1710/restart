@@ -1,0 +1,55 @@
+// useMemo and useCallback:
+
+Parent Component
+const [count, setCount] = useState(0);
+
+const handleCount = useCallback(() => {
+  setCount(prev => prev + 1);
+}, []);
+
+return (
+  <>
+    <OptimizeChild handleCount={handleCount} />
+  </>
+);
+
+⚠️ One More Missing Piece (Very Important)
+
+To actually prevent re-render, the child must be memoized.
+
+✅ Final Correct Child Component
+import React from "react";
+
+const OptimizeChild = React.memo(({ handleCount }) => {
+  console.log("Child Rendered");
+
+  return (
+    <button onClick={handleCount}>
+      Child Button
+    </button>
+  );
+});
+
+export default OptimizeChild;
+
+🧠 Why This Works (Clear Explanation)
+Without useCallback
+Parent re-renders → new function reference created
+Child sees new prop → re-renders ❌
+
+With useCallback + React.memo
+Function reference stays the same
+Child props unchanged
+Child does not re-render ✅
+
+🎤 Interview Explanation (Memorize This)
+“Functions are recreated on every render.
+useCallback memoizes the function reference, and when combined with React.memo, it prevents unnecessary child re-renders.”
+
+This explanation is exactly what Microsoft interviewers want.
+
+⏱ Performance Note (Senior-Level)
+⚠️ Don’t overuse useCallback:
+It has its own memory cost
+Use it only when passing functions to memoized children
+
