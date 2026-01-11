@@ -60,3 +60,34 @@ return max_sum;
 };
 
 lengthOfLongestSubstring("bbbb")
+-----------------------------------------------------------------------------------------------------------
+Correct Approach:
+
+/**
+ * @param {string} s
+ * @return {number}
+ */
+var lengthOfLongestSubstring = function(s) {
+      let map={};
+let left=0;
+let maxLen=0;
+//Increment the right pointer--Fast pointer
+for(let right=0;right<s.length;right++){
+    //Increment the left pointer - slow pointer
+   //Here we are checking if char inside map does have some value instead of undefined and index value of char in map must be greater than left value(i.e, char must be within the current window).
+   // Note: left pointer does not move backward.
+    if(map[s[right]]!==undefined && map[s[right]]>=left){
+         left=map[s[right]]+1;
+    }
+    
+    //put the char:latestIndexOfChar in the map based on the right pointer increment.
+    map[s[right]]=right;
+     console.log(right,"and",s[right], "and", map[s[right]],"ad left-",left);
+    //To check the count of characters in the string or array
+       // map[s[right]]= (map[s[right]] ||0)+1;
+       
+       // check for the maximum window size
+       maxLen=Math.max(maxLen,right-left+1);
+}
+return maxLen;
+};
