@@ -138,3 +138,10 @@ for(let right=0;right<s.length;right++){
 }
 return maxLen;
 };
+
+Interview Explanation (Say This)
+
+“I used a sliding window with a map storing last seen indices.
+When a duplicate appears inside the window, I move the left pointer forward.”
+
+This explanation is Microsoft-grade.
