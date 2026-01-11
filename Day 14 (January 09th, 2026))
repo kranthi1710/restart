@@ -145,3 +145,22 @@ Interview Explanation (Say This)
 When a duplicate appears inside the window, I move the left pointer forward.”
 
 This explanation is Microsoft-grade.
+
+Complexity:
+Time: O(n)---“Each character is visited at most twice—once by the right pointer and once by the left pointer—so the time complexity is O(n).
+Each character is visited at most twice—once by the right pointer and once by the left pointer—so the time complexity is O(n).”
+Map operations
+map[s[right]]
+map[s[right]] = right
+Object access in JS is O(1) average time
+
+
+Space: O(n)----Space Complexity Breakdown
+Data Structure--->	Size
+Map---->	O(n)
+Variables---->	O(1)
+
+👉 Total Space = O(n)
+
+🎤 Interview One-Liner (Memorize This)
+“In the worst case, the map stores all unique characters, so the space complexity is O(n).
