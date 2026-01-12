@@ -64,3 +64,47 @@ var searchInsert = function(nums, target) {
           
           return nums.length;
 };
+
+❌ What Can Be Improved (Important)
+1️⃣ Extra for loop is unnecessary
+
+After binary search finishes:
+
+for(let i=0;i<nums.length;i++){
+    if(target<=nums[i]){
+        return i;
+    }
+}
+
+🚫 This makes time complexity O(n) in worst case
+But the problem expects O(log n).
+
+📌 Key insight:
+When binary search ends, low already points to the correct insert position.
+
+🧠 Why low is the Answer
+When the loop exits:
+high < low
+All elements before low are < target
+All elements from low onward are > target
+So the insert position is low.
+
+✅ Optimized & Interview-Perfect Solution
+var searchInsert = function(nums, target) {
+    let low = 0;
+    let high = nums.length - 1;
+
+    while (low <= high) {
+        let mid = Math.floor((low + high) / 2);
+
+        if (nums[mid] === target) {
+            return mid;
+        } else if (nums[mid] > target) {
+            high = mid - 1;
+        } else {
+            low = mid + 1;
+        }
+    }
+
+    return low;
+};
