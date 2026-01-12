@@ -20,3 +20,16 @@ var search = function(nums, target) {
     }
     return -1;
 };
+
+Key Binary Search Rules (MEMORIZE)
+1️⃣ Works only on sorted arrays
+2️⃣ Recalculate mid every iteration
+3️⃣ Always move pointers past mid
+4️⃣ Loop condition → low <= high
+
+🎤 Interview One-Liner
+“Binary search reduces the search space by half on each iteration, giving O(log n) time complexity.”
+
+⏱ Complexity
+Time: O(log n)
+Space: O(1)
