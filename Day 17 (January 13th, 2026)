@@ -1,1 +1,88 @@
-Day
+Controlled and UnControlled Components:
+
+1️⃣ What’s wrong in your current code
+❌ Issue 1: Ref usage is incorrect
+----->unCntrlInput.current = "Uncontrol";
+
+👉 useRef does not store value directly like state.
+IMP--->For uncontrolled inputs, ref.current points to the DOM element, not the value.
+
+✅ Correct way:
+----->unCntrlInput.current.value
+
+❌ Issue 2: You used ref on a button instead of input
+<button ref={unCntrlInput}>UN Controlled Button</button>
+
+
+Uncontrolled components are inputs, not buttons.
+
+❌ Issue 3: No actual uncontrolled input exists
+
+You only logged to console — but didn’t read input from DOM.
+
+2️⃣ Correct Mental Model (VERY IMPORTANT)
+🔹 Controlled Component
+React owns the data
+Value comes from useState
+Changes via onChange
+<input value={state} onChange={...} />
+
+🔹 Uncontrolled Component
+DOM owns the data
+React accesses it only when needed
+Uses useRef
+<input ref={inputRef} />
+
+3️⃣ Correct & Clean Solution (BLOCK 3 – Perfect)
+This matches exactly what the task expects 👇
+
+✅ Final Working Code
+import { useState, useRef } from "react";
+
+const Test = () => {
+  // Controlled
+  const [controlledValue, setControlledValue] = useState("");
+
+  // Uncontrolled
+  const uncontrolledRef = useRef(null);
+
+  const handleSubmit = () => {
+    console.log("Controlled value:", controlledValue);
+    console.log("Uncontrolled value:", uncontrolledRef.current.value);
+  };
+
+  return (
+    <>
+      {/* Controlled Input */}
+      <input
+        type="text"
+        value={controlledValue}
+        onChange={(e) => setControlledValue(e.target.value)}
+        placeholder="Controlled Input"
+      />
+
+      <br />
+
+      {/* Uncontrolled Input */}
+      <input
+        type="text"
+        ref={uncontrolledRef}
+        placeholder="Uncontrolled Input"
+      />
+
+      <br />
+
+      <button onClick={handleSubmit}>Submit</button>
+    </>
+  );
+};
+
+export default Test;
+
+
+5️⃣ Common Interview Questions (You’re Ready)
+Q: When should you use uncontrolled components?
+👉 File uploads, third-party libraries, quick forms
+
+Q: Why controlled components are preferred?
+👉 Predictable, easier validation, single source of truth
