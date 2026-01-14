@@ -55,4 +55,10 @@ var findMaxAverage = function(nums, k) {
 };
 
 // Now I am using Sliding window.
+Core Concept (First understand this)
+Sliding window is used when:
+You are dealing with subarrays / substrings
+You need maximum / minimum / longest / shortest
+Brute force would be O(n²)
 
+👉 Instead of restarting work, you adjust the window.
