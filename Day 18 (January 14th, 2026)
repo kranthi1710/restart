@@ -1,1 +1,29 @@
-//
+//MY APPROACH (643. Maximum Average Subarray I--Leetcode)
+
+/**
+ * @param {number[]} nums
+ * @param {number} k
+ * @return {number}
+ */
+var findMaxAverage = function(nums, k) {
+  let left=0;
+   let sum=0;
+   let max_avg=0;
+   let avg=0;
+   for(let i=0;i<nums.length;i++){
+   for(let j=0;j<=k;j++){
+      if(j==k){
+           nums.splice(0,1);
+      } else{
+      sum+=nums[j];
+      }
+   }
+    avg=(sum)/k;
+   if(avg>max_avg){
+       max_avg=avg;
+   }
+   sum=0;
+   }
+   return max_avg>0?max_avg:avg;
+
+};
