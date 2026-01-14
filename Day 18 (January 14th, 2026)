@@ -1,4 +1,4 @@
-//MY APPROACH (643. Maximum Average Subarray I--Leetcode)
+//MY APPROACH (643. Maximum Average Subarray I--Leetcode)---This approach is having issues.
 
 /**
  * @param {number[]} nums
@@ -27,3 +27,6 @@ var findMaxAverage = function(nums, k) {
    return max_avg>0?max_avg:avg;
 
 };
+
+// Now I am using Sliding window.
+
