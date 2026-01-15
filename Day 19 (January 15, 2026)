@@ -32,3 +32,14 @@ var isSubsequence = function(s, t) {
    }
    return left===s.length;
 };
+
+
+Interview One-Liner (Perfect Answer)
+
+“I use two pointers to greedily match characters of s while traversing t. If I can consume all characters of s in order, it’s a subsequence.”
+
+🧩 When to Use Map vs Two Pointers
+Problem---->	Pattern
+Anagram--->	Frequency map
+Subsequence--->	Two pointers
+Substring--->	Sliding window
