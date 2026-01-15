@@ -1,0 +1,15 @@
+MY Approach: (DOes not work for all test cases)
+var isSubsequence = function(s, t) {
+     let map={};
+    let str="";
+    for(let i of s){
+       map[i]=(map[i]||0)+1;
+    }
+    
+    for(let i of t){
+        if(map[i]){
+           str+=i
+        } 
+    }
+  return s===str;
+};
