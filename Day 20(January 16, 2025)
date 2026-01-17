@@ -9,3 +9,13 @@ var strStr = function (haystack, needle) {
     }
     return -1;
 };
+
+// My approach using two pointers
+var strStr = function (haystack, needle) {
+    if (needle === "") return 0;
+
+    let left =0;
+let right=0;
+while(left<
+    return -1;
+};
