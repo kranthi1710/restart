@@ -1,3 +1,10 @@
 // KMP algorithm 
 learned about prefix, suffix, and how to use kmp algorithm for advanced level strings
 checked on linkedin learning courses from our compang site.
+
+
+KMP Alogirthm
+LPS - Longest Prefix suffix - Length of the longest proper prefix that is also a suffix.
+1. Build LPS array: 
+Ex: Onions ---- LPS=[0,0,0,1,2,0]
+
