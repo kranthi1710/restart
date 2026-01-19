@@ -1,0 +1,22 @@
+// best time to buy and sell stock
+
+my approach ( some tests are failing)
+
+var maxProfit = function(prices) {
+    let buy= prices[0];
+    let buy_ind=0;
+
+    for(let i=1;i<prices.length;i++){
+        if(prices[i]<buy){
+            buy=prices[i];
+            buy_ind=i;
+        }
+    }
+    let sell= prices[buy_ind+1];
+    for(let i=buy_ind;i<prices.length;i++){
+        if(prices[i]>sell){
+            sell=prices[i];
+        }
+    }
+    return sell!== undefined?sell-buy:0;
+};
