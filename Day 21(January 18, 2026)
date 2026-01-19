@@ -57,3 +57,5 @@ var strStr = function(haystack, needle) {
     
 }
 
+solved best time to buy and sell stock leetcode
+
