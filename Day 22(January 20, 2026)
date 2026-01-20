@@ -20,3 +20,7 @@ var maxProfit = function(prices) {
     }
     return sell!== undefined?sell-buy:0;
 };
+
+
+Akshay saini approach:
+
