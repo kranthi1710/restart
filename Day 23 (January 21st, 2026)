@@ -1,1 +1,19 @@
-//
+MY Approach: (WRONG)
+var isPalindrome = function(s) {
+    let regex=/[a-z]/g;
+    let str=s.toLowerCase().match(regex).join("");
+    let right=str.length-1;
+    let left;
+   for(left=0;left<str.length;){
+       if(str[left]===str[right]){
+         left++;
+         right--;
+       }
+       
+   }
+   return left===str.length;
+  
+  
+};
+
+console.log(isPalindrome("A man,  plan, a canal: Panama"))
