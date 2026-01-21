@@ -8,7 +8,7 @@ var isPalindrome = function(s) {
        if(str[left]===str[right]){
          left++;
          right--;
-       }
+       } /// THIS will result in infinite loop, If characters don’t match, neither left nor right changes, This will loop again and again with same left and right values resulting in infinite loop.
        
    }
    return left===str.length;
@@ -17,3 +17,49 @@ var isPalindrome = function(s) {
 };
 
 console.log(isPalindrome("A man,  plan, a canal: Panama"))
+
+🧠 Golden Rule (Memorize This)
+Every loop must guarantee progress OR termination
+If neither happens → infinite loop.
+
+🎤 Interview One-Liner (Very Strong)
+“In pointer-based loops, I always ensure that either the pointers move forward or the function exits, otherwise it can result in infinite loops.”
+
+
+
+CORRECT Solution:
+/**
+ * @param {string} s
+ * @return {boolean}
+ */
+var isPalindrome = function(s) {
+   let left=0;
+   let right=s.length-1;
+   while(left<right){
+    //skip non-alphanumeric from left
+    while(left<right && !isAlphanumeric(s[left]) ){
+left++;
+    }
+    //skip non-alphanumeric from right
+    while(left<right && !isAlphanumeric(s[right])){
+        right--;
+    }
+    //check if two characters are not equal
+    if(s[left].toLowerCase()!==s[right].toLowerCase()){
+        return false;
+    }
+    left++;
+    right--;
+   }
+   return true;
+};
+
+function isAlphanumeric(char){
+    let code=char.charCodeAt(0);
+    return (
+       ( (code>=48 && code<=57) ||   // 0-9
+(code>=65 && code<=90) ||   // A-Z
+(code>=97 && code<=122)) // a-z
+    )
+
+}
