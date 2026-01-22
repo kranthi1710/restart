@@ -20,6 +20,8 @@ var isAnagram = function(s, t) {
            map[i]--;
        } 
    }
+return Object.values(map).every(x=>x==0);
+};
 
 
 The SUBTLE ISSUE in Your Code
@@ -37,6 +39,14 @@ If t contains a character not in s, or appears more times, your code:
 ❌ Only catches it later using Object.values(map)
 This is less optimal and less clean.
 
+❌ Example Where Logic Is Weak
+s = "anagram"
+t = "anagramb"
+
+b is not in map
+Loop silently ignores it
+You rely on the final every(x === 0) check
+👉 This works accidentally, but senior interviewers don’t like delayed failure.
 
 
 Correct way:
@@ -62,11 +72,11 @@ var isAnagram = function(s, t) {
        
 };
   
-   
-       return Object.values(map).every(x=>x==0);
+Say this 👇
 
-       
-};
+“I use a hash map to count characters from the first string. While traversing the second string,
+I decrement counts and immediately return false if a character doesn’t exist or exceeds the expected frequency. This ensures O(n) time with constant space.”
 
+That answer alone sounds senior-level.
 
 
