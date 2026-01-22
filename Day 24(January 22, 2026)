@@ -22,6 +22,22 @@ var isAnagram = function(s, t) {
    }
 
 
+The SUBTLE ISSUE in Your Code
+Your current decrement logic:
+for (let i of t) {
+    if (map.hasOwnProperty(i) && map[i] >= 0) {
+        map[i]--;
+    }
+}
+
+Problem:
+If t contains a character not in s, or appears more times, your code:
+❌ Does nothing
+❌ Continues looping
+❌ Only catches it later using Object.values(map)
+This is less optimal and less clean.
+
+
 
 Correct way:
 /**
