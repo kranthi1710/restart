@@ -55,3 +55,10 @@ React challenge--Add task:
     <TaskList tasks={tasks} />
     </>
   )
+
+NOTE:(https://dev.to/nishanthan-k/typescript-event-types-and-event-handling-in-react-a-complete-guide-for-beginners-3cn0)
+Input, Checkbox, Radio: React.ChangeEvent<HTMLInputElement>
+Textarea: React.ChangeEvent<HTMLTextAreaElement>
+Select: React.ChangeEvent<HTMLSelectElement>
+Form: React.FormEvent<HTMLFormElement>
+Button: React.MouseEvent<HTMLButtonElement>
