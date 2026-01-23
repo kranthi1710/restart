@@ -1,0 +1,37 @@
+// Automatic Batching in react:(https://www.geeksforgeeks.org/reactjs/what-is-automatic-batching-in-react-18/)
+Batching is a strategy for grouping multiple state updates before triggering a re-rendering a component.
+This optimization is necessary because each re-render is computationally expensive.
+Before React 18, Batching is limited to the state updates that occurred within React event handlers.
+Here's a simple example:
+function handleClick() {
+  setCount(count + 1); // Update 1
+  setIsVisible(true);  // Update 2
+}
+Here, React will batch the two state updates within same event handler and perform single re-render the component.
+However, state updates originating outside event handlers, such as updates within Promises,timeouts and native event listeners(like addEventListener and removeEventListener) are not batched by default.
+
+for Example:
+setTimeout(()=>{
+setCount(count+1); // Update 1
+setIsVisible(true); // Update 2
+},1000)
+
+Here two re-renders will happen for two state updates inside setTimeout, without batching. This issue is solved by Automatic batching in react 18.
+
+Automatic batching - In this, React batching extends beyond the event handlers.
+In most of the cases, regardless of where state updates originates, react will attempt to batch it together with other pending updates.
+
+Forcing a Re-render: At times, you might need to force a re-render immediately, bypassing the batching mechanism. React provides the flushSync utility for this:
+import { flushSync } from 'react-dom';
+
+flushSync(() => {
+  setCount(count + 1); 
+});
+
+React 18's useTransition hook:
+It is designed for separating out urgent and non-urgent updates. Urgent updates(like responding to user input) should proceed as normal,
+while non urgent updates(like fetching secondary data) marked as transitions. Automatic batching works in conjuction with these transitions to ensure smoother experiences.
+
+Note: In hypothetical cases, React Automatic batching might not be applies to some old libraries, here we might leverage React's "unstable_batchedUpdates" API for finer control.
+
+
