@@ -34,4 +34,24 @@ while non urgent updates(like fetching secondary data) marked as transitions. Au
 
 Note: In hypothetical cases, React Automatic batching might not be applies to some old libraries, here we might leverage React's "unstable_batchedUpdates" API for finer control.
 
+React challenge--Add task:
+ const [tasks,setTasks]=useState<string[]>([]);
+  const [task,setTask]=useState<string>("");
 
+  const handleAddTask=()=>{
+  setTasks(tasks=>[...tasks,task])
+  setTask("")
+  }
+
+  return (
+    <>
+    <input 
+    type="text" 
+    value={task} 
+    onChange={e=>setTask(e.target.value)}
+    onKeyDown={e=>e.key==="Enter" && handleAddTask()}
+    placeholder="Enter Task"
+    />
+    <TaskList tasks={tasks} />
+    </>
+  )
