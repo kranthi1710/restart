@@ -6,3 +6,24 @@ sliding window
 two sum
 
 Revised teow pointers approach
+
+/**
+ * @param {number[]} nums
+ * @return {number}
+ */
+// MY APPROACH
+var findMaxConsecutiveOnes = function(nums) {
+    if(nums.length===1) return nums[0];
+    let x=0;
+    let arr=[];
+    for(let i=0;i<nums.length;i++){
+    if(nums[i]===1){
+        x++;
+    }else{
+    arr.push(x);
+    x=0;
+    }
+    }
+     arr.push(x);
+    return arr.length!==0?Math.max(...arr):0;
+};
