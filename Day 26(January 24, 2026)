@@ -27,3 +27,26 @@ var findMaxConsecutiveOnes = function(nums) {
      arr.push(x);
     return arr.length!==0?Math.max(...arr):0;
 };
+
+Second approach: Instead of arr=[], we can take max_count variable
+/**
+ * @param {number[]} nums
+ * @return {number}
+ */
+var findMaxConsecutiveOnes = function(nums) {
+    if(nums.length===1) return nums[0];
+    let x=0;
+    let max_count=0;
+    for(let i=0;i<nums.length;i++){
+    if(nums[i]===1){
+        x++;
+    }else{
+        if(max_count<x){
+    max_count=x;
+        }
+    x=0;
+    }
+    }
+  if(max_count<x) max_count=x;
+    return max_count;
+};
