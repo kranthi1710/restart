@@ -14,3 +14,5 @@ const maxMinArray=(nums)=>{
 console.log(maxMinArray([1, 5, 7, 2, 9, 3]))
 
 // revised kadanes algorithm
+
+//Reverse a string two pointer and day 5
