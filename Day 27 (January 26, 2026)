@@ -89,6 +89,13 @@ NOTE---VV IMP
 // EX: string[0]=1; //cannot be modified
 // swapping won't change anything on strings
 
+🔥 Senior-Level Explanation (Say This)
+“I used a two-pointer approach to swap characters from both ends of the array, ensuring in-place reversal with constant space complexity.”
+This line alone signals strong fundamentals.
+
+📌 Key Takeaway
+If a problem says “modify in-place” → think SWAP, not COPY.
+
 Correct approach if argument is passed as string 
 const revStr=(s)=>{
 let str=s.split("");//Added line
