@@ -51,3 +51,21 @@ return -1;
 }
 
 console.log(firstUniqueChar("loveleetcode"));
+
+// Revised Day 9 topics
+const twoSum=(nums,target)=>{
+    let map={};
+   let left=0;
+   for(let i=0;i<nums.length;i++){
+       map[nums[i]]=i;
+   }
+ for(let i=0;i<nums.length;i++){
+    let rem=target-nums[i];
+    // check if rem is not undefined and rem is not equal to current index
+    if(map[rem]!==undefined && map[rem]!==i){
+        return [i,map[rem]]
+    }
+ }
+}
+
+console.log(twoSum([2, 7, 11, 15],9));
