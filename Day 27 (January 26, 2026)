@@ -34,3 +34,20 @@ const moveZeros=(nums)=>{
 }
 
 console.log(moveZeros([0,1,0,3,12]));
+
+// Revised firstUniqueChar problem from Day 7:
+const firstUniqueChar=(str)=>{
+    let map={};
+for(let i of str){
+    map[i]=(map[i] || 0)+1;
+}
+for(let i=0;i<str.length;i++){
+    if(map[str[i]]===1){
+        return i;
+        break;
+    }
+}
+return -1;
+}
+
+console.log(firstUniqueChar("loveleetcode"));
