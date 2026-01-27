@@ -69,3 +69,36 @@ const twoSum=(nums,target)=>{
 }
 
 console.log(twoSum([2, 7, 11, 15],9));
+
+//Wrong if passed argument is string for revStr
+const revStr=(s)=>{
+    let left=0;
+    let right=s.length-1;
+  while(left<right){
+      [s[left],s[right]]=[s[right],s[left]];
+      left++;
+      right--;
+  }
+  return s;
+}
+
+console.log(revStr("kranthi")); //kranthi
+
+NOTE---VV IMP
+//strings are immutable, strings cannot be modified by index
+// EX: string[0]=1; //cannot be modified
+// swapping won't change anything on strings
+
+Correct approach if argument is passed as string 
+const revStr=(s)=>{
+let str=s.split("");//Added line
+    let left=0;
+    let right=str.length-1;
+  while(left<right){
+      [str[left],str[right]]=[str[right],str[left]];
+      left++;
+      right--;
+  }
+  return str.join(""); //Added line
+}
+console.log(revStr("kranthi")); //ihtnark
