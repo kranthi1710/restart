@@ -13,3 +13,42 @@ var singleNumber = function(nums) {
         }
     }
 };
+
+XOR Approach :
+var singleNumber = function(nums) {
+     let xor=nums;
+   for(let i of nums){
+       xor^=i;
+   }
+   return xor;
+};
+
+🧩 Problem: Single Number
+You are given an array where:
+Every number appears twice
+Only one number appears once
+
+Find that single number.
+nums = [4,1,2,1,2]
+Output → 4
+
+
+⚠ Constraints:
+Must be O(n) time
+Must be O(1) space
+(No hash maps allowed)
+
+🧠 Think Before Coding
+Use XOR rules:
+a ^ a = 0
+a ^ 0 = a
+
+If you XOR all numbers:
+4 ^ 1 ^ 2 ^ 1 ^ 2
+= (1^1) ^ (2^2) ^ 4
+= 0 ^ 0 ^ 4
+= 4
+
+
+🎯 Interview Line (Say this)
+“I used XOR because identical numbers cancel out, leaving only the unique number.”
