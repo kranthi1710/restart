@@ -1,4 +1,4 @@
-Day 
+
 watched recursion 
 sum of array elements using recursion
 
@@ -10,3 +10,11 @@ return arr[n]+sum[n-1]
 let arr=[1,2,3,4,5]
 
 sum(arr.length-1)
+
+// sum of n integers using recursion
+
+function sum(n){
+if(n===0) return 0;
+return n + sum(n-1)
+}
+sum(6) // 21
