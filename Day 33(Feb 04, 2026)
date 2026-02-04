@@ -1,1 +1,12 @@
 // Revise the dsa problems and take codelity test
+
+My Approach -- Brute force.
+var findWordsContaining = function(words, x) {
+    let arr=[];
+    for(let w=0;w<words.length;w++){
+        if(words[w].indexOf(x)!==-1){
+            arr.push(w);
+        }
+    }
+    return arr;
+};
