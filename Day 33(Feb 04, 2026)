@@ -23,3 +23,19 @@ var findWordsContaining = function(words, x) {
     }
     return arr;
 };
+
+Second approach
+var findWordsContaining = function(words, x) {
+    let arr=[];
+    for(let w=0;w<words.length;w++){
+        //find the character in the word without builtin functions
+        for(let i=0;i<words[w].length;i++){
+             if(words[w][i]===x){
+                arr.push(w);
+                break;
+             }
+        }
+       
+    }
+    return arr;
+};
