@@ -12,3 +12,14 @@ var findWordsContaining = function(words, x) {
     }
     return arr;
 };
+
+Brute force --using includes
+var findWordsContaining = function(words, x) {
+    let arr=[];
+    for(let w=0;w<words.length;w++){
+        if(words[w].includes(x)){
+            arr.push(w);
+        }
+    }
+    return arr;
+};
