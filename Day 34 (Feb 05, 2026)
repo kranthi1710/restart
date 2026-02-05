@@ -37,3 +37,26 @@ var lengthOfLastWord = function(s) {
     }
     return count;
 };
+
+
+// Using while
+/**
+ * @param {string} s
+ * @return {number}
+ */
+var lengthOfLastWord = function(s) {
+    // start from right side, If you encounter the space- trim it,
+    // start counting the characters
+    // If you encouter the space this time after count is greater than 0, break the loop and return the count
+    let right=s.length-1;
+    let count=0;
+    while(right>=0){
+         if(s[right]!==" "){
+            count++;
+        } else if( count>0) {
+                 break;
+        }
+        right--;
+    }
+    return count;
+};
