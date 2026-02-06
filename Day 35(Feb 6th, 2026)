@@ -15,3 +15,7 @@ var numJewelsInStones = function(jewels, stones) {
     }
     return count;
 };
+
+
+Short Polling:
+Client sends requests to the server at fixed regular intervals.
