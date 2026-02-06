@@ -1,0 +1,17 @@
+// MY Approach---Brute force(using Hash Map)
+var numJewelsInStones = function(jewels, stones) {
+    //loop through stones
+    // check if jewels are present
+    // Map
+    let map={};
+    let count=0;
+    for(let i of jewels){
+      map[i]=(map[i] || 0) + 1;
+    }
+    for(let i of stones){
+        if(map.hasOwnProperty(i)){
+           ++count;
+        }
+    }
+    return count;
+};
