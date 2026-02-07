@@ -16,3 +16,19 @@ var maxFreqSum = function(s) {
 
     return maxVowel+maxConst;
 };
+
+
+var balancedStringSplit = function(s) {
+    let count = 0;
+    let substr="";
+    let map={};
+    for(let i of s){
+        substr+=i;
+        map[i]=(map[i] || 0) + 1;
+        if(map['R']===map['L']){
+            count++;
+        }
+        
+    }
+    return count;
+};
