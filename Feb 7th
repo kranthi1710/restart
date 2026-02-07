@@ -1,0 +1,18 @@
+var maxFreqSum = function(s) {
+    let map={};
+    let maxVowel=0;
+    let maxConst=0;
+    for(let i of s){
+        map[i]=(map[i] || 0) + 1;
+    }
+
+    for(let i of s){
+        if("aeiou".includes(i) && maxVowel<map[i]){
+            maxVowel=map[i];
+        } else if(!"aeiou".includes(i) && maxConst<map[i]){
+            maxConst=map[i];
+        }
+    }
+
+    return maxVowel+maxConst;
+};
