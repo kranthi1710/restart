@@ -19,3 +19,7 @@ be silent on calls, dont get excited and say everything
 
 
 //Today I will complete reverse string 11 problem
+
+Approach:
+Reverse the k characters in every 2k characters array
+So split the array for every 2k elements of a string
