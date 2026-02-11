@@ -23,3 +23,23 @@ be silent on calls, dont get excited and say everything
 Approach:
 Reverse the k characters in every 2k characters array
 So split the array for every 2k elements of a string
+
+var reverseStr = function(s, k) {
+    let substr="";
+    let subArr=[];
+    let left=right=0;
+    while(right<s.length){
+        if(right===2*k){
+            console.log("substr",substr);
+            subArr.push(substr);
+           
+           
+        }
+        substr+=s[right];
+        right++;
+    }
+    console.log(subArr);
+};
+
+reverseStr("abcdefg",2);
+
