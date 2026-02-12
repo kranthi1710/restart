@@ -43,3 +43,6 @@ var reverseStr = function(s, k) {
 
 reverseStr("abcdefg",2);
 
+// watched the approach:
+first divide the sting in 2k and then reverse the first k characters
+
