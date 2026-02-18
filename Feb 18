@@ -1,3 +1,7 @@
+// MY Approach -- It worked for some extent
+
+Problems: while loop condition can get into infinite loop
+
 var longestCommonPrefix = function(strs) {
     // think about negatie scenarios
     let commonPrefix="";
