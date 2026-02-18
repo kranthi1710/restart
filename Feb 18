@@ -1,0 +1,24 @@
+var longestCommonPrefix = function(strs) {
+    // think about negatie scenarios
+    let commonPrefix="";
+    let left=0;
+    let map={};
+    while(left<strs.length){
+  for(let str of strs){
+      if(map[str[left]]){
+           map[str[left]]+=1;
+           if(map[str[left]]===strs.length){
+               console.log("hgdf",str[left],left,map);
+               commonPrefix+=str[left];
+               left++;
+           }
+      }else{
+               map[str[left]]= 1;
+      }
+
+  }
+  }
+ return commonPrefix;
+};
+
+longestCommonPrefix(["flower","flow","flight"])
