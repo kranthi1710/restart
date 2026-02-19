@@ -20,5 +20,20 @@ var longestCommonPrefix = function(strs) {
         // Keep the pointer incrementing for every character check if no above failure condition
         left++;
     }
+
+
+if(s.length!==t.length){
+       return false;
+    } 
+   let map={};
+   for(let i of s){
+    map[i]=(map[i] || 0) +1;
+   }
+   
+   for(let i of t){
+     if(!map[i]) return false; //fail fast
+     map[i]--;   
+   }
+       return true;
     return prefix;
 };
