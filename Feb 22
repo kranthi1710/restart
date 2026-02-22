@@ -1,5 +1,6 @@
 My Approach using two maps and comparing values---Failed for 5 test cases
 var isIsomorphic = function(s, t) {
+// Add length equal case
     let map={};
     for(let i of s){
         map[i]=(map[i] || 0) + 1;
@@ -16,3 +17,5 @@ var isIsomorphic = function(s, t) {
 
     return a.toString()===b.toString();
 };
+
+checked out approach and edge sceanrios
