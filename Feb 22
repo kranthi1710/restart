@@ -1,0 +1,18 @@
+My Approach using two maps and comparing values---Failed for 5 test cases
+var isIsomorphic = function(s, t) {
+    let map={};
+    for(let i of s){
+        map[i]=(map[i] || 0) + 1;
+    }
+   
+    let map1={};
+    for(let i of t){
+       map1[i]=(map1[i] || 0) + 1;  
+    }
+   
+    
+    let a=Object.values(map);
+    let b=Object.values(map1);
+
+    return a.toString()===b.toString();
+};
