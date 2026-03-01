@@ -1,8 +1,4 @@
-/**
- * @param {string} s
- * @param {string} goal
- * @return {boolean}
- */
+My Approach - 40/60 passed
 var rotateString = function(s, goal) {
     //strings are immutable
     //compare strings after number of shifts
@@ -15,3 +11,6 @@ var rotateString = function(s, goal) {
 
 
 };
+
+
+
