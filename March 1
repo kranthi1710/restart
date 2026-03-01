@@ -8,9 +8,27 @@ var rotateString = function(s, goal) {
    let sliceStr=s.slice(0,idx);
    let finalStr=s.slice(idx)+sliceStr;
    return finalStr===goal;
-
-
 };
+
+
+Approach 2: Brute force(O(n2))
+/**
+ * @param {string} s
+ * @param {string} goal
+ * @return {boolean}
+ */
+var rotateString = function(s, goal) {
+if(s.length!==goal.length) return false;
+    for(let i=0;i<s.length;i++){
+        let finalStr=s.slice(i)+s.slice(0,i);
+        if(finalStr===goal) return true;
+    }
+   return false;
+};
+
+Approach 3: Chatgpt ---O(n)
+
+
 
 
 
