@@ -1,0 +1,17 @@
+/**
+ * @param {string} s
+ * @param {string} goal
+ * @return {boolean}
+ */
+var rotateString = function(s, goal) {
+    //strings are immutable
+    //compare strings after number of shifts
+    //Brute force---split string and join and compare
+    let idx=s.indexOf(goal[0]);
+   console.log(idx);
+   let sliceStr=s.slice(0,idx);
+   let finalStr=s.slice(idx)+sliceStr;
+   return finalStr===goal;
+
+
+};
