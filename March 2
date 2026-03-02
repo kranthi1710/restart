@@ -1,0 +1,7 @@
+// Communication Protocols:
+1. Every new HTTP request will make a TCP connection.
+
+HTTP3(QUIC) 
+-It is used by Youtube extensively
+-Usecases - IOT, Virtual Reality
+-Establishes UDP connection.
