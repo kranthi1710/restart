@@ -1,0 +1,39 @@
+Isomorphic strings:---Tricky
+/**
+ * @param {string} s
+ * @param {string} t
+ * @return {boolean}
+ */
+var isIsomorphic = function(s, t) {
+   if (s.length !== t.length) return false;
+
+    let mapST={};
+    let mapTS={};
+    //If for loop executes properly, then return true
+    for(let i=0;i<s.length;i++){
+        let a=s[i];
+        let b=t[i];
+       
+        if(mapST[a] && mapST[a]!==b) return false;
+        if(mapTS[b] && mapTS[b]!==a) return false;
+        mapST[a]=b;
+        mapTS[b]=a;
+    }
+    
+   return true;
+};
+
+⏱ Time Complexity
+O(n)
+
+Single pass through the string.
+
+Space complexity:
+
+O(1)
+
+(max 256 ASCII characters)
+
+💡 Interview Tip (Senior dev level explanation)
+
+Isomorphic strings require bijective mapping between characters of both strings. We maintain two hash maps to ensure one-to-one mapping consistency.
