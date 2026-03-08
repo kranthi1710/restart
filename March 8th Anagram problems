@@ -58,3 +58,23 @@ var groupAnagrams = function(strs) {
      }
   return sortedArr;
 };
+
+
+Correct Approach 1:
+/**
+ * @param {string[]} strs
+ * @return {string[][]}
+ */
+var groupAnagrams = function(strs) {
+ let map={};
+  
+   for(let i=0;i<strs.length;i++){
+    let s=strs[i].split("").sort().join("");
+      if(map.hasOwnProperty(s)){
+        map[s].push(strs[i]);
+      } else{
+         map[s]= [strs[i]];///This line is imp
+      }
+   }
+     return Object.values(map);
+};
