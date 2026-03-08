@@ -18,3 +18,43 @@ var isAnagram = function(s, t) {
     return true;
        
 };
+
+//Group Anagrams
+My Approach 1 : 113/128 passed
+
+/**
+ * @param {string[]} strs
+ * @return {string[][]}
+ */
+var groupAnagrams = function(strs) {
+ let map={};
+ let sortedArr=[];
+  
+   for(let i=0;i<strs.length;i++){
+    let s=strs[i].split("").sort().join("");
+      if(map.hasOwnProperty(s)){
+        map[s]=map[s]+strs[i]+" ";
+      } else{
+         map[s]= strs[i]+" ";
+      }
+   }
+   console.log(map);
+    if(Object.values(map).length===1){
+        console.log("zero")
+       sortedArr.push(Object.keys(map));
+     } else{
+  
+   for(let val of Object.values(map)){
+    let arr=[];
+    
+       for(let i of val.split(" ")){
+        if(i!==""){
+           arr.push(i); 
+        } 
+    } 
+    sortedArr.push(arr);
+     
+   }
+     }
+  return sortedArr;
+};
