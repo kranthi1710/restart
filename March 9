@@ -1,1 +1,4 @@
 // Anagrams --- second approach
+
+//Rest API concepts like URL naming conventions like scheme, host, path, querystring, fragment
+METHODS like POST, GET, PUT/PATCH,DELETE AND HEAD,OPTIONS,CONNECT,TRACE
