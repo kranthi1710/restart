@@ -1,0 +1,36 @@
+Approach 2: using Hashed Key
+var groupAnagrams = function(strs) {
+    let map={};
+   // create a key
+  
+   for(let i=0;i<strs.length;i++){
+     let freqArr=Array(26).fill(0);
+    let s=strs[i];
+    for(let j=0;j<s.length;j++){
+       // find the index to update the freqArr
+        let ind=s[j].charCodeAt(0) - 'a'.charCodeAt(0);
+        ++freqArr[ind];
+    }
+
+    //create a key and store freqArr along with alphabet to get "a0b1c0d0...z0" format
+    let key="";
+    for(let k=0;k<26;k++){
+      key+=String.fromCharCode(k)+freqArr[k];
+    }
+
+    if(map[key]){
+        map[key].push(s);
+    } else{
+        map[key]=[s];
+    }
+
+  
+   }
+
+   return [...Object.values(map)]
+
+
+
+  
+  
+};
