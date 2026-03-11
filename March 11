@@ -13,3 +13,19 @@ var majorityElement = function(nums) {
     }
   
 };
+
+
+Brute Approach ---- NOT Optimized
+var sortArrayByParity = function(nums) {
+    let arr=[];
+    let arr1=[];
+    for(let i of nums){
+        if(i%2===0){
+           arr.push(i)
+        } else {
+            arr1.push(i);
+        }
+    }
+     arr.push(...arr1);
+     return arr;
+};
