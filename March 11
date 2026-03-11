@@ -1,0 +1,15 @@
+/**
+ * @param {number[]} nums
+ * @return {number}
+ */
+var majorityElement = function(nums) {
+    let max= Math.floor(nums.length/2);
+    let map={};
+    for(let i of nums){
+        map[i]=(map[i] || 0) + 1;
+        if(map[i]>max){
+            return i;
+        }
+    }
+  
+};
