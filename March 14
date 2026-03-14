@@ -1,1 +1,3 @@
 // Revised all weekly concepts
+
+//Short polling does not require keeping a continuous open communication channel. Each request is independent and the connection closes after every response.
