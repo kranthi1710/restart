@@ -1,1 +1,18 @@
 // Coding problem
+Brute force: 
+/**
+ * @param {number} x
+ * @return {number}
+ */
+var mySqrt = function(x) {
+   for(let i=1;i>=0;i++){
+    if(i*i>x){
+        console.log(i);
+        return i-1;
+        break;
+    } else if(i*i===x){
+        return i;
+        break;
+    }
+   }
+};
