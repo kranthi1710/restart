@@ -21,3 +21,5 @@ var mySqrt = function(x) {
 Rest API concepts learnt
 Request headers
 response headers
+
+host, referrer
